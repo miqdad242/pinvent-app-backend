@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors({
-    origin: ["http://localhost:3000", "https://pinvent-app-frontends.vercel.app/", "https://66935ec3b61ecdbc3cf3c1ad--rococo-madeleine-1bedfb.netlify.app/" ],
+    origin: ["http://localhost:3000", "https://pinvent-app-frontends.vercel.app", "https://66935ec3b61ecdbc3cf3c1ad--rococo-madeleine-1bedfb.netlify.app" ],
     credentials: true
 }));
 
