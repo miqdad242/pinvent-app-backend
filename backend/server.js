@@ -29,7 +29,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors({
     origin: ["http://localhost:3000", "https://pinvent-app-frontends.vercel.app", "https://66935ec3b61ecdbc3cf3c1ad--rococo-madeleine-1bedfb.netlify.app" ],
-    credentials: true
+    credentials: true,
+    optionsSuccessStatus: 200
 }));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
