@@ -27,8 +27,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json());
+// app.use(cors({
+//     origin: ["http://localhost:3000", "https://pinvent-app-frontends.vercel.app",],
+//     credentials: true,
+//     optionsSuccessStatus: 200
+// }));
 app.use(cors({
-    origin: ["http://localhost:3000", "https://pinvent-app-frontends.vercel.app",],
+    origin: ["https://rococo-madeleine-1bedfb.netlify.app/",],
     credentials: true,
     optionsSuccessStatus: 200
 }));
