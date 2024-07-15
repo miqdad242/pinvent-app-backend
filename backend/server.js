@@ -81,12 +81,23 @@ const PORT = process.env.PORT || 5000;
 // });
 
 // Middlewares
-app.use(cors({
-    origin: "*",
+// app.use(cors({
+//     origin: "*",
+//     credentials: true,
+//     optionsSuccessStatus: 200,
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+// }));
+app.options('*', cors({
+    origin: [
+        "http://localhost:3000",
+        "https://pinvent-app-frontends.vercel.app",
+        "https://rococo-madeleine-1bedfb.netlify.app",
+        "https://6694d0ae9464c83ddab6416d--rococo-madeleine-1bedfb.netlify.app/"
+    ],
     credentials: true,
-    optionsSuccessStatus: 200,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
 }));
 app.use(express.json());
 app.use(cookieParser());
