@@ -76,7 +76,7 @@ const PORT = process.env.PORT || 5000;
 
 // Apply CORS middleware
 app.use(cors({
-    origin: "https://66952cd7d78a072d045cbffc--rococo-madeleine-1bedfb.netlify.app/",
+    origin: "https://pinvent-app-frontends.vercel.app",
   credentials: true,
     optionSuccessStatus:200
    
