@@ -82,7 +82,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middlewares
 app.use(cors({
-    origin: ["http://localhost:3000", "https://pinvent-app-frontends.vercel.app", "https://rococo-madeleine-1bedfb.netlify.app"],
+    origin: "*",
     credentials: true,
     optionsSuccessStatus: 200,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
