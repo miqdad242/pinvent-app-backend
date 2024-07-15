@@ -76,14 +76,10 @@ const PORT = process.env.PORT || 5000;
 
 // Apply CORS middleware
 app.use(cors({
-    origin: [
-        "http://localhost:3000",
-        "https://pinvent-app-frontends.vercel.app",
-        "https://66952cd7d78a072d045cbffc--rococo-madeleine-1bedfb.netlify.app/"
-    ],
-    credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
+    origin: "https://66952cd7d78a072d045cbffc--rococo-madeleine-1bedfb.netlify.app/",
+  credentials: true,
+    optionSuccessStatus:200
+   
 }));
 
 // Middleware
