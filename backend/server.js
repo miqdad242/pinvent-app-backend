@@ -79,7 +79,7 @@ app.use(cors({
     origin: [
         "http://localhost:3000",
         "https://pinvent-app-frontends.vercel.app",
-        "https://6694d0ae9464c83ddab6416d--rococo-madeleine-1bedfb.netlify.app"
+        "https://66952cd7d78a072d045cbffc--rococo-madeleine-1bedfb.netlify.app/"
     ],
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
