@@ -135,9 +135,9 @@ const PORT = process.env.PORT || 5000;
 
 // Apply CORS middleware
 app.use(cors({
-    origin: "https://pinvent-app-frontends-k2ngwuvcx-miqdad242s-projects.vercel.app",
+    origin: "https://pinvent-app-frontends.vercel.app",
     credentials: true,
-    optionsSuccessStatus: 204
+    optionsSuccessStatus: 200
 }));
 
 // Middleware
