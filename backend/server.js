@@ -130,11 +130,11 @@ const contactRoute = require("./routes/contactRoute");
 const errorHandler = require("./middleWare/errorMiddleware");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 // Apply CORS middleware
 app.use(cors({
-    origin: "https://pinvent-app-frontends.vercel.app",
+    origin: ["http://localhost:3000", "https://pinvent-app-frontends.vercel.app"],
     credentials: true,
     optionsSuccessStatus: 204
 }));
