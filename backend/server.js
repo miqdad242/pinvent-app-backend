@@ -59,6 +59,65 @@
 //     .catch((err) => console.log(err));
 
 
+// require("dotenv").config();
+// const express = require("express");
+// const cors = require("cors");
+// const mongoose = require("mongoose");
+// const bodyParser = require("body-parser");
+// const cookieParser = require("cookie-parser");
+// const path = require("path");
+// const userRoute = require("./routes/userRoute");
+// const productRoute = require("./routes/productRoute");
+// const contactRoute = require("./routes/contactRoute");
+// const errorHandler = require("./middleWare/errorMiddleware");
+
+// const app = express();
+// const PORT = process.env.PORT || 5000;
+
+// // Apply CORS middleware
+// app.use(cors({
+//     origin: "https://pinvent-app-frontends.vercel.app",
+//   credentials: true,
+//     optionSuccessStatus:200
+   
+// }));
+
+// // Middleware
+// app.use(express.json());
+// app.use(cookieParser());
+// app.use(express.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// // Log all requests
+// app.use((req, res, next) => {
+//     console.log("Received request:", req.method, req.url);
+//     console.log("Request headers:", req.headers);
+//     next();
+// });
+
+// // Routes
+// app.use("/api/users", userRoute);
+// app.use("/api/products", productRoute);
+// app.use("/api/contactus", contactRoute);
+
+// app.get("/", (req, res) => {
+//     res.send("Home Page");
+// });
+
+// // Error Middleware
+// app.use(errorHandler);
+
+// // Connect to DB and start server
+// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => {
+//         app.listen(PORT, () => {
+//             console.log(`Server running on port ${PORT}`);
+//         });
+//     })
+//     .catch((err) => console.log(err));
+
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -77,9 +136,8 @@ const PORT = process.env.PORT || 5000;
 // Apply CORS middleware
 app.use(cors({
     origin: "https://pinvent-app-frontends.vercel.app",
-  credentials: true,
-    optionSuccessStatus:200
-   
+    credentials: true,
+    optionsSuccessStatus: 204
 }));
 
 // Middleware
@@ -93,6 +151,14 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use((req, res, next) => {
     console.log("Received request:", req.method, req.url);
     console.log("Request headers:", req.headers);
+    next();
+});
+
+// Log all responses
+app.use((req, res, next) => {
+    res.on('finish', () => {
+        console.log("Response headers:", res.getHeaders());
+    });
     next();
 });
 
