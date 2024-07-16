@@ -137,8 +137,17 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({
     origin: "https://pinvent-app-frontends.vercel.app",
     credentials: true,
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 204
 }));
+
+// Middleware to manually set CORS headers
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://pinvent-app-frontends.vercel.app");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
 
 // Middleware
 app.use(express.json());
