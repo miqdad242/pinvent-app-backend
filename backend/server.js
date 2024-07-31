@@ -130,15 +130,27 @@ const contactRoute = require("./routes/contactRoute");
 const errorHandler = require("./middleWare/errorMiddleware");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 // Apply CORS middleware
 app.use(cors({
-    origin: ["http://localhost:3000", "https://pinvent-app-frontends.vercel.app/"],
+    origin: 'https://rococo-madeleine-1bedfb.netlify.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+
     credentials: true,
     optionsSuccessStatus: 200
 })
 );
+
+// Explicitly set CORS headers for all responses
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://rococo-madeleine-1bedfb.netlify.app");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
+    next();
+});
 
 
 // Middleware
