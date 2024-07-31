@@ -134,12 +134,11 @@ const PORT = process.env.PORT || 8080;
 
 // Apply CORS middleware
 app.use(cors({
-    origin: 'https://rococo-madeleine-1bedfb.netlify.app',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-
     credentials: true,
-    optionsSuccessStatus: 200
+  //  optionsSuccessStatus: 200
 })
 );
 
